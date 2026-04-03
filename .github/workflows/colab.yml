@@ -27,16 +27,16 @@ jobs:
       matrix:
         notebook_path: [Colab_UnityEnvironment_1_Run.ipynb, Colab_UnityEnvironment_2_Train.ipynb, Colab_UnityEnvironment_3_SideChannel.ipynb]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2
       with:
         python-version: 3.9.x
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '6.0.x'
     - name: Cache pip
-      uses: actions/cache@v2
+      uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace  # v2
       with:
         # This path is specific to Ubuntu
         path: ~/.cache/pip
@@ -56,7 +56,7 @@ jobs:
     - name: Execute notebook
       run: jupyter nbconvert --to notebook --execute --log-level=DEBUG --ExecutePreprocessor.kernel_name=python3 --output output-${{ matrix.notebook_path }} colab/${{ matrix.notebook_path }}
     - name: Upload colab results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2  # v2
       with:
         name: artifacts
         path: |

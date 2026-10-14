@@ -9,9 +9,9 @@ jobs:
   markdown-link-check-full:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-python@v2
-    - uses: actions/setup-node@v2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+    - uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2.3.4
+    - uses: actions/setup-node@7c12f8017d5436eb855f1ed4399f037a36fbd9e8  # v2.5.2
       with:
         node-version: '12'
     - name: Install manual dependencies
@@ -46,13 +46,13 @@ jobs:
           - python-version: 3.10.x
             pip_constraints: test_constraints_max_version.txt
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2.3.4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Cache pip
-      uses: actions/cache@v2
+      uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace  # v2
       with:
         # This path is specific to Ubuntu
         path: ~/.cache/pip
@@ -81,7 +81,7 @@ jobs:
         --cov-report=html --junitxml=junit/test-results-${{ matrix.python-version }}.xml \
         -p no:warnings -v -n 8
     - name: Upload pytest test results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@82c141cc518b40d92cc801eee768e7aafc9c2fa2  # v2.3.1
       with:
         name: artifacts-${{ matrix.python-version }}
         path: |

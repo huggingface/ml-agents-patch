@@ -32,7 +32,7 @@ jobs:
       uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e  # v2
       with:
         python-version: 3.9.x
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/setup-dotnet@871f041373faaad213a635d9afb62905ec029bbb  # v1.10.1
       with:
         dotnet-version: '6.0.x'
     - name: Cache pip
